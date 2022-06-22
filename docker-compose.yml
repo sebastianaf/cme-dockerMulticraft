@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  cme-multicraft-app:
+    container_name: cme-multicraft-app
+    image: mariowi/multicraft:latest
+    restart: always
+    ports:
+      - 21:921
+      - 80:980 
+      - 6000-6005:6000-6005
+      - 15580-15590:15580-15590/udp 
+      - 25580-25590:25580-25590 
+      - 35580-35590:35580-35590
+    environment:
+      MC_DAEMON_PW: changeMe
+    volumes:
+      - ./multicraft:/multicraft
+networks:
+  cme-multicraft:
+    name: cme-multicraft
